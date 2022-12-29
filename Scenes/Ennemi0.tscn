@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scriptes/Ennemi0.gd" type="Script" id=1]
+[ext_resource path="res://Health/Health.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Health/HeathBar3D.tscn" type="PackedScene" id=3]
 
 [sub_resource type="SphereMesh" id=1]
 
@@ -18,3 +20,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00162, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
 shape = SubResource( 2 )
+
+[node name="Health" parent="." instance=ExtResource( 2 )]
+
+[node name="HeathBar3D" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.490585, 0, 0, 0, 0.538039, 0, 0, 0, 1, 0, 2.73658, 0 )

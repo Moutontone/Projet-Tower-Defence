@@ -43,7 +43,7 @@ func _physics_process(delta):
 
 
 
-func _process(delta):
+func _process(_delta):
 	_spring_arm.translation = translation
 	if Input.is_action_just_pressed("built"):
 		built()

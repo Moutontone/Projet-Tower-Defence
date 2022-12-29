@@ -1,0 +1,10 @@
+prototype 0
+- import d'un personnage avec mouvement 3d et caméra
+- création d'un niveau test. C'est juste une surface plate avec un spawner et un trajet en ligne droite
+- création d'ennemis basiques
+- création tourelle basique
+- je joueur peut créer des tourelles au sol
+
+prototype 0.001:
+- ajout d'un visuel pour la range des tourelles
+- ajout d'une barre de vie pour les ennemis

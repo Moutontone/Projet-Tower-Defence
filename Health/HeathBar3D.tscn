@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Health/HealthBar.tscn" type="PackedScene" id=1]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[node name="HeathBar3D" type="Spatial"]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 305, 38 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="HealthBar" parent="Viewport" instance=ExtResource( 1 )]
+margin_left = 3.0
+margin_top = 4.0
+margin_right = 303.0
+margin_bottom = 34.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = SubResource( 1 )

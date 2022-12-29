@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scriptes/Tourelle0.gd" type="Script" id=1]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="CylinderShape" id=2]
-height = 3.41087
-radius = 7.86538
+height = 3.5
+radius = 10.0
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 0.121569, 0.639216, 0.541176, 0.215686 )
 
 [node name="Tourelle0" type="Spatial"]
 script = ExtResource( 1 )
@@ -20,6 +26,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.0140352 )
 
 [node name="CollisionShape" type="CollisionShape" parent="zoneDetection"]
 shape = SubResource( 2 )
+
+[node name="range" type="MeshInstance" parent="zoneDetection"]
+transform = Transform( 9.90524, 0, 0, 0, 1.72963, 0, 0, 0, 9.95085, 0, 0, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
 
 [connection signal="body_entered" from="zoneDetection" to="." method="_on_zoneDetection_body_entered"]
 [connection signal="body_exited" from="zoneDetection" to="." method="_on_zoneDetection_body_exited"]

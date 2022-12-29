@@ -1,6 +1,6 @@
 extends PathFollow
 
-var speed = 1
+var speed = 2
 
 # Declare member variables here. Examples:
 # var a = 2

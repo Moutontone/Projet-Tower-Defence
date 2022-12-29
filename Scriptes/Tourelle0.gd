@@ -3,7 +3,7 @@ extends Spatial
 # recharger
 var timerRecharge = Timer.new()
 var tirePret = false
-var tempsRecharge = 3
+var tempsRecharge = 1
 
 # ennemis à porté
 var ennemis = []
@@ -26,14 +26,12 @@ func finRecharge():
 func CommencerRechage():
 	timerRecharge.start(tempsRecharge)
 
-	
-
 func tirer():
 	print("TIRE !")
 	# choix de l'ennemi
 	var ennemi = ennemis[0]
 	# tire sur un ennemi
-	ennemi.on_hit()
+	ennemi.on_hit(4)
 	# 
 	tirePret = false
 	CommencerRechage()

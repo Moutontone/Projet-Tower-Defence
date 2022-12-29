@@ -8,3 +8,13 @@ prototype 0
 prototype 0.001:
 - ajout d'un visuel pour la range des tourelles
 - ajout d'une barre de vie pour les ennemis
+
+prototype 0.002:
+- ajout d'un canon rotatif sur les tourelles
+- les tourelles utilisent maintenant un projectile pour effectuer leurs degats
+
+---------------------------------------
+Pour la suite :
+Créer différent ennemis
+Créer différentes tourelles
+modification des projectiles (prédire la position de l'ennemis ou le suivre pour le pas rater les tires)

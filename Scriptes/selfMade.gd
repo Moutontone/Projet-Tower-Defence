@@ -10,7 +10,7 @@ export (float) var mouse_sensitivity = 0.03
 
 var _snap_vector = Vector3.DOWN
 var _velocity = Vector3.ZERO
-var turret = load("res://Scenes/Tourelle0.tscn")
+var turret = load("res://tourelles/Tourelle_basique.tscn")
 onready var _spring_arm = $SpringArm
 onready var _model = $Pivot
 

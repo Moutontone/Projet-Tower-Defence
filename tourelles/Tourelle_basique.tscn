@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://tourelles/Tourelle_basique.gd" type="Script" id=1]
+
+[sub_resource type="CylinderMesh" id=5]
+height = 0.5
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 1, 0.5, 1 )
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 0.2, 0.1, 1 )
+
+[sub_resource type="CylinderShape" id=8]
+radius = 10.0
+height = 1.0
+
+[sub_resource type="CylinderMesh" id=9]
+top_radius = 10.0
+bottom_radius = 10.0
+height = 1.0
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 0.121569, 0.639216, 0.541176, 0.215686 )
+
+[node name="Tourelle_basique" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="socle" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="pivot" type="Spatial" parent="."]
+
+[node name="tete" type="MeshInstance" parent="pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="canon" type="MeshInstance" parent="pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.5 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Zone_detection" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Zone_detection"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Zone_detection"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0172787, 0.499999, 0.0244484 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 4 )
+
+[connection signal="body_entered" from="Zone_detection" to="." method="_on_Zone_detection_body_entered"]
+[connection signal="body_exited" from="Zone_detection" to="." method="_on_Zone_detection_body_exited"]

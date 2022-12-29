@@ -2,9 +2,11 @@ extends Spatial
 
 # recharger
 var timerRecharge = Timer.new()
-var tirePret = false
+var tirePret = true
 var tempsRecharge = 1
 
+# bullet
+onready var bullet = preload("res://Scenes/Bullet.tscn")
 # ennemis à porté
 var ennemis = []
 
@@ -31,17 +33,19 @@ func tirer():
 	# choix de l'ennemi
 	var ennemi = ennemis[0]
 	# tire sur un ennemi
-	ennemi.on_hit(4)
+	var b = bullet.instance()
+	$canon.add_child(b)
+	b.look_at(ennemi.transform.origin, Vector3.UP)
+	b.shoot = true
+	# ennemi.on_hit(4)
 	# 
 	tirePret = false
 	CommencerRechage()
 	
 
 func _on_zoneDetection_body_entered(body):
-	var node = body.get_parent()
-	if node.is_in_group("Ennemis"):
-		ennemis.append(node)
+	if body.is_in_group("Ennemis"):
+		ennemis.append(body)
 
 func _on_zoneDetection_body_exited(body):
-	var node = body.get_parent()
-	ennemis.erase(node)
+	ennemis.erase(body)
